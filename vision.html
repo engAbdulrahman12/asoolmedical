@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>رؤية عسول</title>
+  <link rel="stylesheet" href="static/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Cairo', sans-serif;
+    }
+
+    body {
+      background-color: #EFECE0;
+      overflow-x: hidden;
+    }
+
+    section {
+      width: 100vw;
+      padding: 80px 20px;
+      position: relative;
+    }
+    h1, h2, h3 {
+      font-weight: bold;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1.1rem;
+      color: #333;
+    }
+
+    .text-gold {
+      color: #fcbf49;
+    }
+
+    /* أيقونات */
+    .icon {
+      width: 60px;
+      margin-bottom: 20px;
+    }
+
+    /* أقسام القيم */
+    .values {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .value-card {
+      background: white;
+      border-radius: 16px;
+      padding: 30px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+      text-align: center;
+      color: #000;
+    }
+
+    /* أنيميشن */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* hero - رؤيتنا في عسول */
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: radial-gradient(circle at top left, #EDDC97, #D4952F);
+      color: #614F3A;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero h1 {
+      font-size: 4rem;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 1.5rem;
+      margin-bottom: 40px;
+    }
+
+    .cta-btn {
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      background-color: #3098A6;
+      color: #fff;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .cta-btn:hover {
+      transform: scale(1.1);
+      background-color: #256b73;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      color: #3098A6;
+      margin-bottom: 40px;
+    }
+
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .timeline-item {
+      background: #EDDC97;
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      position: relative;
+      transition: 0.3s;
+      color: #614F3A;
+    }
+
+    .timeline-item:hover {
+      background-color: #D4952F;
+      color: #fff;
+      transform: scale(1.02);
+    }
+
+    .timeline-item h3 {
+      color: #614F3A;
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .value-card {
+      background: #fff;
+      padding: 30px;
+      border-radius: 20px;
+      text-align: center;
+      transition: 0.3s;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    }
+
+    .value-card:hover {
+      transform: translateY(-10px);
+      background: #EDDC97;
+    }
+
+    .value-card i {
+      font-size: 2.5rem;
+      color: #3098A6;
+      margin-bottom: 10px;
+    }
+
+    /* الإحصائيات تبقى كما هي */
+    .stats {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px;
+      background-color: #3098A6;
+      color: #fff;
+      padding: 60px 20px;
+    }
+
+    .stat-box {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 3rem;
+      font-weight: bold;
+    }
+
+    /* تخصيص ألوان باقي الأقسام (ما عدا hero، values، stats، nav، footer) */
+
+    /* رسالتنا */
+    section.bg-light.fade-in:nth-of-type(2) {
+      background-color: #E4E4E4;
+      color: #555555;
+    }
+
+    /* أهدافنا نحو رؤية السعودية 2030 */
+    section.bg-light.fade-in:nth-of-type(4) {
+      background-color: #555555;
+      color: #EFECE0;
+    }
+
+    section.bg-light.fade-in:nth-of-type(4) p {
+  color: #EFECE0;
+   }
+
+  
+    section.fade-in:nth-of-type(5) {
+      background-color: #D4952F;
+      color: #fff;
+    }
+
+    /* قيمنا الأساسية section - white */
+    section:has(.values-grid) {
+      background-color: #fff;
+      color: #000;
+    }
+
+    /* الإنجازات section - #EFECE0 */
+    section:has(.timeline) {
+      background-color: #EFECE0;
+      color: #000;
+    }
+
+    /* بقية الأقسام بدون class bg-light أو fade-in تبقى بيضاء */
+    section:not(.hero):not(.values-grid):not(.stats):not(.bg-light):not(footer):not(:has(.values-grid)):not(:has(.timeline)) {
+      background-color: #fff;
+      color: #000;
+    }
+
+    /* الموبايل */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.5rem;
+        margin-bottom: 15px;
+      }
+
+      .hero p {
+        font-size: 1.2rem;
+        margin-bottom: 30px;
+      }
+
+      .section-title {
+        font-size: 2rem;
+        margin-bottom: 30px;
+      }
+
+      .timeline {
+        gap: 25px;
+        padding: 0 15px;
+      }
+
+      .timeline-item {
+        padding: 25px 20px;
+      }
+
+      .values-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        padding: 0 15px;
+      }
+
+      .value-card {
+        padding: 25px 20px;
+      }
+
+      .stats {
+        flex-direction: column;
+        gap: 20px;
+        padding: 40px 15px;
+      }
+
+      .stat-box {
+        width: 100%;
+        padding: 20px;
+      }
+
+      .stat-number {
+        font-size: 2.5rem;
+      }
+
+      /* Navigation mobile fixes */
+      .navbar-container {
+        padding: 10px 15px;
+      }
+
+      .logo {
+        height: 60px;
+      }
+
+      .hamburger {
+        display: block;
+        margin-right: 0;
+        font-size: 24px;
+        padding: 5px;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #EFECE0;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        padding: 20px 0;
+        z-index: 1000;
+      }
+
+      .nav-links.show {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .nav-links li {
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+      }
+
+      .nav-links li a {
+        display: block;
+        padding: 10px 20px;
+        width: 100%;
+      }
+
+      /* Disable bee animations on mobile for better performance */
+      .bee {
+        display: none;
+      }
+
+      section {
+        padding: 60px 15px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .section-title {
+        font-size: 1.8rem;
+      }
+
+      .timeline-item {
+        padding: 20px 15px;
+      }
+
+      .value-card {
+        padding: 20px 15px;
+      }
+
+      .stat-number {
+        font-size: 2rem;
+      }
+
+      section {
+        padding: 40px 10px;
+      }
+    }
+
+  </style>
+</head>
+<body class="vision-page">
+   <nav class="navbar">
+    
+  <div class="navbar-container">
+    <a href="index.html" class="logo-link">
+      <img src="static/Alo.png" alt="شعار عسول" class="logo">
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html" data-ar="من نحن" data-en="About Us">من نحن</a></li>
+      <li><a href="vision.html" data-ar="الرؤية" data-en="Vision">الرؤية</a></li>
+      <li><a href="index.html#contact" id="contact-nav" data-ar="تواصل معنا" data-en="Contact Us">تواصل معنا</a></li>
+      <li><a href="privacy.html" data-ar="سياسة الخصوصية" data-en="Privacy Policy">سياسة الخصوصية</a></li>
+      <li><a href="terms.html" data-ar="شروط الاستخدام" data-en="Terms of Service">شروط الاستخدام</a></li>
+      <li><a href="app.html" data-ar="التطبيق" data-en="App">التطبيق</a></li>
+    </ul>
+    <button class="hamburger" onclick="toggleMenu()" title="فتح القائمة الجانبية">
+      <i class="fas fa-bars"></i>
+    </button>
+    
+    <!-- Language Switcher -->
+    <button class="language-switcher" onclick="toggleLanguage()" title="Switch Language / تبديل اللغة">
+      <i class="fas fa-globe"></i>
+      <span class="lang-text">EN</span>
+    </button>
+  </div>
+</nav>
+
+  <main>
+    <div class="bee bee1">🐝</div>
+    <div class="bee bee2">🐝</div>
+    <div class="bee bee3">🐝</div>
+
+    <div class="fade-content">
+      <section class="hero">
+        <h1 data-ar="رؤيتنا في عسول" data-en="Our Vision at Asool">رؤيتنا في عسول</h1>
+        <p data-ar="نسعى لخلق بيئة صحية ومُحبّة لكل طفل مصاب بالسكري" data-en="We strive to create a healthy and loving environment for every child with diabetes">نسعى لخلق بيئة صحية ومُحبّة لكل طفل مصاب بالسكري</p>
+        <button class="cta-btn" data-ar="اكتشف كيف" data-en="Discover How">اكتشف كيف</button>
+      </section>
+
+      <section class="bg-light fade-in">
+        <h2 data-ar="رسالتنا" data-en="Our Mission">رسالتنا</h2>
+        <p data-ar="توفير بيئة آمنة وداعمة للأطفال وأسرهم عبر تمكينهم من التحكم الكامل في حالتهم الصحية، وبناء جيل واعٍ بالصحة وقادر على التكيف مع التحديات، وذلك من خلال أدوات رقمية متقدمة، وخدمات طبية متصلة، وتجربة استخدام استثنائية." data-en="Providing a safe and supportive environment for children and their families by empowering them to have full control over their health condition, and building a health-conscious generation capable of adapting to challenges, through advanced digital tools, connected medical services, and an exceptional user experience.">توفير بيئة آمنة وداعمة للأطفال وأسرهم عبر تمكينهم من التحكم الكامل في حالتهم الصحية، وبناء جيل واعٍ بالصحة وقادر على التكيف مع التحديات، وذلك من خلال أدوات رقمية متقدمة، وخدمات طبية متصلة، وتجربة استخدام استثنائية.</p>
+      </section>
+
+      <section>
+        <h2 class="section-title" data-ar="قيمنا الأساسية" data-en="Our Core Values">قيمنا الأساسية</h2>
+        <div class="values-grid">
+          <div class="value-card">
+            <i class="fas fa-heart"></i>
+            <h4 data-ar="الرعاية" data-en="Care">الرعاية</h4>
+            <p data-ar="نهتم بالأطفال ونضع احتياجاتهم أولاً" data-en="We care about children and put their needs first">نهتم بالأطفال ونضع احتياجاتهم أولاً</p>
+          </div>
+          <div class="value-card">
+            <i class="fas fa-lightbulb"></i>
+            <h4 data-ar="الابتكار" data-en="Innovation">الابتكار</h4>
+            <p data-ar="نطور باستمرار حلولًا جديدة تجعل من إدارة السكري تجربة أكثر ذكاءً وفاعلية" data-en="We continuously develop new solutions that make diabetes management a smarter and more effective experience">نطور باستمرار حلولًا جديدة تجعل من إدارة السكري تجربة أكثر ذكاءً وفاعلية</p>
+          </div>
+          <div class="value-card">
+            <i class="fas fa-users"></i>
+            <h4 data-ar="المجتمع" data-en="Community">المجتمع</h4>
+            <p data-ar="نعمل على خلق شبكة دعم مجتمعية للأطفال وأولياء أمورهم." data-en="We work to create a community support network for children and their parents.">نعمل على خلق شبكة دعم مجتمعية للأطفال وأولياء أمورهم.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="bg-light fade-in">
+        <h2 data-ar="أهدافنا نحو رؤية السعودية 2030" data-en="Our Goals Towards Saudi Vision 2030">أهدافنا نحو رؤية السعودية 2030</h2>
+        <p data-ar="ندعم رؤية المملكة 2030 من خلال الابتكار في قطاع الصحة الرقمية، وتحسين جودة الحياة، وخفض نسب الأمراض المزمنة بين الأطفال عبر الوقاية والتدخل المبكر." data-en="We support the Kingdom's Vision 2030 through innovation in the digital health sector, improving quality of life, and reducing rates of chronic diseases among children through prevention and early intervention.">ندعم رؤية المملكة 2030 من خلال الابتكار في قطاع الصحة الرقمية، وتحسين جودة الحياة، وخفض نسب الأمراض المزمنة بين الأطفال عبر الوقاية والتدخل المبكر.</p>
+      </section>
+
+      <section class="fade-in">
+        <h2 data-ar="لماذا عسول؟" data-en="Why Asool?">لماذا عسول؟</h2>
+        <ul>
+          <li data-ar="منصة متكاملة تجمع بين الرعاية الطبية والدعم الأسري." data-en="An integrated platform that combines medical care and family support.">منصة متكاملة تجمع بين الرعاية الطبية والدعم الأسري.</li>
+          <li data-ar="واجهة سهلة الاستخدام للأطفال وأولياء الأمور." data-en="Easy-to-use interface for children and parents.">واجهة سهلة الاستخدام للأطفال وأولياء الأمور.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="section-title" data-ar="الإنجازات" data-en="Achievements">الإنجازات</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <h3>2024</h3>
+            <p data-ar="الفوز بجائزة إبداعي للمبادرات الصحية" data-en="Winning the Ibda'i Award for Health Initiatives">الفوز بجائزة إبداعي للمبادرات الصحية</p>
+          </div>
+          <div class="timeline-item">
+            <h3>2023</h3>
+            <p data-ar="ميدالية فضية في جنيف للابتكار" data-en="Silver Medal in Geneva for Innovation">ميدالية فضية في جنيف للابتكار</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="stats">
+        <div class="stat-box">
+          <div class="stat-number">11+</div>
+          <div data-ar="أنشطة توعوية" data-en="Awareness Activities">أنشطة توعوية</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-number">2</div>
+          <div data-ar="جوائز دولية" data-en="International Awards">جوائز دولية</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-number">10+</div>
+          <div data-ar="شراكات صحية" data-en="Health Partnerships">شراكات صحية</div>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <h2 data-ar="منصات التواصل الاجتماعي" data-en="Social Media Platforms">منصات التواصل الاجتماعي</h2>
+        <div class="social-icons">
+          <a href="https://wa.me/your_number" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
+          <a href="https://x.com/1Asoolksa" target="_blank" rel="noopener"><i class="fab fa-x"></i></a>
+          <a href="https://www.instagram.com/1asoolksa" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.linkedin.com/company/asool-%D8%B9%D8%B3%D9%88%D9%84/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
+        </div>
+      </footer>
+    </div>
+  </main>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('navLinks').classList.toggle('show');
+    }
+    
+    // Language switching functionality
+    let currentLanguage = 'ar'; // Default language is Arabic
+    
+    function toggleLanguage() {
+      currentLanguage = currentLanguage === 'ar' ? 'en' : 'ar';
+      updateLanguage();
+      updateLanguageButton();
+    }
+    
+    function updateLanguage() {
+      // Update navigation links
+      const navLinks = document.querySelectorAll('.nav-links a');
+      navLinks.forEach(link => {
+        const text = currentLanguage === 'ar' ? link.getAttribute('data-ar') : link.getAttribute('data-en');
+        if (text) {
+          link.textContent = text;
+        }
+      });
+      
+      // Update page content based on current language
+      updatePageContent();
+    }
+    
+    function updateLanguageButton() {
+      const langText = document.querySelector('.lang-text');
+      if (langText) {
+        langText.textContent = currentLanguage === 'ar' ? 'EN' : 'AR';
+      }
+    }
+    
+    function updatePageContent() {
+      // Update main content based on language
+      const contentElements = document.querySelectorAll('[data-ar], [data-en]');
+      contentElements.forEach(element => {
+        const text = currentLanguage === 'ar' ? element.getAttribute('data-ar') : element.getAttribute('data-en');
+        if (text) {
+          element.textContent = text;
+        }
+      });
+      
+      // Update page title
+      const pageTitle = currentLanguage === 'ar' ? 'رؤية عسول' : 'Asool Vision';
+      document.title = pageTitle;
+      
+      // Keep page direction and language consistent to prevent layout shifts
+      // document.documentElement.dir = currentLanguage === 'ar' ? 'rtl' : 'ltr';
+      // document.documentElement.lang = currentLanguage === 'ar' ? 'ar' : 'en';
+    }
+    
+    // Initialize language on page load
+    document.addEventListener('DOMContentLoaded', function() {
+      updateLanguageButton();
+    });
+
+    document.addEventListener("scroll", function(){
+      document.querySelectorAll(".fade-in").forEach(function(el){
+          if(el.getBoundingClientRect().top < window.innerHeight - 50){
+              el.classList.add("visible");
+          }
+      });
+    });
+  </script>
+</body>
+</html>
