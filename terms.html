@@ -18,37 +18,26 @@
     <div class="bee bee1">🐝</div>
     <div class="bee bee2">🐝</div>
     <div class="bee bee3">🐝</div>
-    <!--header class="hero">
-        <img src="static/header1.jpg" alt="صورة رأسية" class="hero-img">
-        <div class="overlay">
-            <h1 class="fade-in">شروط الاستخدام</h1>
-        </div>
-    </header>
-    <!-Title section (remaining) -->
 
     <main>
-    
-    <div class="content-wrapper">
-      <h2 class="section-title" data-ar="شروط الاستخدام" data-en="Terms of Service">شروط الاستخدام</h2>
+      <div class="content-wrapper">
+        <h2 class="section-title" data-ar="شروط الاستخدام" data-en="Terms of Service">شروط الاستخدام</h2>
         <div class="card fade-in">
             <p data-ar="باستخدامك لموقع عسول، فإنك توافق على ما يلي:" data-en="By using the Asool website, you agree to the following:">باستخدامك لموقع عسول، فإنك توافق على ما يلي:</p>
-                <ul>
-                    <li data-ar="عدم استخدام الموقع في أي نشاط غير قانوني." data-en="Not to use the website for any illegal activity.">عدم استخدام الموقع في أي نشاط غير قانوني.</li>
-                    <li data-ar="الامتناع عن نسخ أو إعادة نشر المحتوى بدون إذن." data-en="To refrain from copying or republishing content without permission.">الامتناع عن نسخ أو إعادة نشر المحتوى بدون إذن.</li>
-                    <li data-ar="تحديث الشروط سيتم دون إشعار مسبق عند الحاجة." data-en="Terms updates will be made without prior notice when needed.">تحديث الشروط سيتم دون إشعار مسبق عند الحاجة.</li>
-                </ul>      
+            <ul>
+                <li data-ar="عدم استخدام الموقع في أي نشاط غير قانوني." data-en="Not to use the website for any illegal activity.">عدم استخدام الموقع في أي نشاط غير قانوني.</li>
+                <li data-ar="الامتناع عن نسخ أو إعادة نشر المحتوى بدون إذن." data-en="To refrain from copying or republishing content without permission.">الامتناع عن نسخ أو إعادة نشر المحتوى بدون إذن.</li>
+                <li data-ar="تحديث الشروط سيتم دون إشعار مسبق عند الحاجة." data-en="Terms updates will be made without prior notice when needed.">تحديث الشروط سيتم دون إشعار مسبق عند الحاجة.</li>
+            </ul>      
         </div>
-  
-   </main>
-
+      </div>
+    </main>
 
     <nav class="navbar">
         <div class="navbar-container">
             <a href="index.html" class="logo-link">
-      <img src="Alo.png" alt="شعار عسول" class="logo">
-    </a>
-
-            <!-- Navigation links -->
+                <img src="Alo.png" alt="شعار عسول" class="logo">
+            </a>
             <ul class="nav-links" id="navLinks">
                 <li><a href="index.html" data-ar="من نحن" data-en="About Us">من نحن</a></li>
                 <li><a href="vision.html" data-ar="الرؤية" data-en="Vision">الرؤية</a></li>
@@ -57,13 +46,9 @@
                 <li><a href="terms.html" data-ar="شروط الاستخدام" data-en="Terms of Service">شروط الاستخدام</a></li>
                 <li><a href="app.html" data-ar="التطبيق" data-en="App">التطبيق</a></li>
             </ul>
-
-            <!-- Hamburger Button -->
             <button class="hamburger" onclick="toggleMenu()" title="فتح القائمة الجانبية">
                 <i class="fas fa-bars"></i>
             </button>
-            
-            <!-- Language Switcher -->
             <button class="language-switcher" onclick="toggleLanguage()" title="Switch Language / تبديل اللغة">
                 <i class="fas fa-globe"></i>
                 <span class="lang-text">EN</span>
@@ -71,76 +56,57 @@
         </div>
     </nav>
 
-
-
-    <Footer class="footer">
-    <h2 data-ar="منصات التواصل الاجتماعي" data-en="Social Media Platforms">منصات التواصل الاجتماعي</h2>
-    <div class="social-icons">
-      <a href="https://wa.me/your_number" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
-      <a href="https://x.com/1Asoolksa" target="_blank" rel="noopener"><i class="fab fa-x"></i></a>
-      <a href="https://www.instagram.com/1asoolksa" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-      <a href="https://www.linkedin.com/company/asool-%D8%B9%D8%B3%D9%88%D9%84/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
-    </div>
-  </footer>
+    <footer class="footer">
+        <h2 data-ar="منصات التواصل الاجتماعي" data-en="Social Media Platforms">منصات التواصل الاجتماعي</h2>
+        <div class="social-icons">
+            <a href="https://wa.me/your_number" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://x.com/1Asoolksa" target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/1asoolksa" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/company/asool-%D8%B9%D8%B3%D9%88%D9%84/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
+        </div>
+    </footer>
 
     <script>
         function toggleMenu() {
             document.getElementById('navLinks').classList.toggle('show');
         }
-        
-        // Language switching functionality
-        let currentLanguage = 'ar'; // Default language is Arabic
-        
+
+        let currentLanguage = 'ar';
+
         function toggleLanguage() {
             currentLanguage = currentLanguage === 'ar' ? 'en' : 'ar';
             updateLanguage();
             updateLanguageButton();
         }
-        
+
         function updateLanguage() {
-            // Update navigation links
             const navLinks = document.querySelectorAll('.nav-links a');
             navLinks.forEach(link => {
                 const text = currentLanguage === 'ar' ? link.getAttribute('data-ar') : link.getAttribute('data-en');
-                if (text) {
-                    link.textContent = text;
-                }
+                if (text) link.textContent = text;
             });
-            
-            // Update page content based on current language
             updatePageContent();
         }
-        
+
         function updateLanguageButton() {
             const langText = document.querySelector('.lang-text');
-            if (langText) {
-                langText.textContent = currentLanguage === 'ar' ? 'EN' : 'AR';
-            }
+            if (langText) langText.textContent = currentLanguage === 'ar' ? 'EN' : 'AR';
         }
-        
+
         function updatePageContent() {
-            // Update main content based on language
             const contentElements = document.querySelectorAll('[data-ar], [data-en]');
             contentElements.forEach(element => {
                 const text = currentLanguage === 'ar' ? element.getAttribute('data-ar') : element.getAttribute('data-en');
-                if (text) {
-                    element.textContent = text;
-                }
+                if (text) element.textContent = text;
             });
-            
-            // Update page title
             const pageTitle = currentLanguage === 'ar' ? 'شروط الاستخدام - عسول' : 'Terms of Service - Asool';
             document.title = pageTitle;
-            
-            // Keep page direction and language consistent to prevent layout shifts
-            // document.documentElement.dir = currentLanguage === 'ar' ? 'rtl' : 'ltr';
-            // document.documentElement.lang = currentLanguage === 'ar' : 'en';
         }
-        
-        // Initialize language on page load
+
         document.addEventListener('DOMContentLoaded', function() {
             updateLanguageButton();
         });
     </script>
 </body>
 </html>
+
