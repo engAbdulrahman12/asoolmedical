@@ -1,16 +1,22 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>شروط الاستخدام - عسول</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
     <style>
-      html, body { font-family: 'Cairo', sans-serif; height: 100%; }
+      html, body { font-family: 'Cairo', sans-serif; height: 100%; margin: 0; padding: 0; }
       body { display: flex; flex-direction: column; min-height: 100vh; }
-      main { flex: 1; }
+      main { flex: 1; padding: 20px; }
+      .bee { font-size: 2rem; position: absolute; }
+      .navbar { display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; background: #f8f8f8; }
+      .nav-links { list-style: none; display: flex; gap: 15px; padding: 0; margin: 0; }
+      .nav-links a { text-decoration: none; color: #333; }
+      .footer { text-align: center; padding: 20px; background: #f0f0f0; }
+      .social-icons a { margin: 0 10px; color: #333; text-decoration: none; }
     </style>
 </head>
 <body class="terms-page">
@@ -36,23 +42,18 @@
     <nav class="navbar">
         <div class="navbar-container">
             <a href="index.html" class="logo-link">
-                <img src="Alo.png" alt="شعار عسول" class="logo">
+                <img src="Alo.png" alt="شعار عسول" class="logo" width="120">
             </a>
             <ul class="nav-links" id="navLinks">
                 <li><a href="index.html" data-ar="من نحن" data-en="About Us">من نحن</a></li>
                 <li><a href="vision.html" data-ar="الرؤية" data-en="Vision">الرؤية</a></li>
-                <li><a href="index.html#contact" id="contact-nav" data-ar="تواصل معنا" data-en="Contact Us">تواصل معنا</a></li>
+                <li><a href="index.html#contact" data-ar="تواصل معنا" data-en="Contact Us">تواصل معنا</a></li>
                 <li><a href="privacy.html" data-ar="سياسة الخصوصية" data-en="Privacy Policy">سياسة الخصوصية</a></li>
                 <li><a href="terms.html" data-ar="شروط الاستخدام" data-en="Terms of Service">شروط الاستخدام</a></li>
                 <li><a href="app.html" data-ar="التطبيق" data-en="App">التطبيق</a></li>
             </ul>
-            <button class="hamburger" onclick="toggleMenu()" title="فتح القائمة الجانبية">
-                <i class="fas fa-bars"></i>
-            </button>
-            <button class="language-switcher" onclick="toggleLanguage()" title="Switch Language / تبديل اللغة">
-                <i class="fas fa-globe"></i>
-                <span class="lang-text">EN</span>
-            </button>
+            <button class="hamburger" onclick="toggleMenu()"><i class="fas fa-bars"></i></button>
+            <button class="language-switcher" onclick="toggleLanguage()"><i class="fas fa-globe"></i> <span class="lang-text">EN</span></button>
         </div>
     </nav>
 
@@ -85,7 +86,12 @@
                 const text = currentLanguage === 'ar' ? link.getAttribute('data-ar') : link.getAttribute('data-en');
                 if (text) link.textContent = text;
             });
-            updatePageContent();
+            const contentElements = document.querySelectorAll('[data-ar], [data-en]');
+            contentElements.forEach(el => {
+                const text = currentLanguage === 'ar' ? el.getAttribute('data-ar') : el.getAttribute('data-en');
+                if (text) el.textContent = text;
+            });
+            document.title = currentLanguage === 'ar' ? 'شروط الاستخدام - عسول' : 'Terms of Service - Asool';
         }
 
         function updateLanguageButton() {
@@ -93,19 +99,7 @@
             if (langText) langText.textContent = currentLanguage === 'ar' ? 'EN' : 'AR';
         }
 
-        function updatePageContent() {
-            const contentElements = document.querySelectorAll('[data-ar], [data-en]');
-            contentElements.forEach(element => {
-                const text = currentLanguage === 'ar' ? element.getAttribute('data-ar') : element.getAttribute('data-en');
-                if (text) element.textContent = text;
-            });
-            const pageTitle = currentLanguage === 'ar' ? 'شروط الاستخدام - عسول' : 'Terms of Service - Asool';
-            document.title = pageTitle;
-        }
-
-        document.addEventListener('DOMContentLoaded', function() {
-            updateLanguageButton();
-        });
+        document.addEventListener('DOMContentLoaded', updateLanguageButton);
     </script>
 </body>
 </html>
