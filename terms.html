@@ -17,6 +17,23 @@
       .nav-links a { text-decoration: none; color: #333; }
       .footer { text-align: center; padding: 20px; background: #f0f0f0; }
       .social-icons a { margin: 0 10px; color: #333; text-decoration: none; }
+      @media (max-width: 768px) {
+        .nav-links {
+          display: none;
+          flex-direction: column;
+          background: #f8f8f8;
+          position: absolute;
+          right: 20px;
+          top: 60px;
+          z-index: 10;
+        }
+        .nav-links.show {
+          display: flex;
+        }
+        .navbar-container {
+          position: relative;
+        }
+      }
     </style>
 </head>
 <body class="terms-page">
